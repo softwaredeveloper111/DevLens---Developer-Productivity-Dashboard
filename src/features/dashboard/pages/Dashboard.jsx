@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState  } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import GitHubSearch from "../components/GitHubSearch";
@@ -13,10 +13,18 @@ import {
   DEMO_LANGUAGES,
   DEMO_REPOS,
 } from "../demoData";
+// import useDashboard from "../hooks/useDashboard"
+// import Loader from "../../shared/Loader";
+// import Errorboundary from "../../shared/ErrorBoundary"
+
+
 
 const INITIAL_VISIBLE = 6;
 
 const Dashboard = () => {
+
+  // const { profile, repos, loading, error, fetchDashboardData} = useDashboard()
+
   const [username, setUsername] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // showData controls whether profile/stats are visible.
@@ -24,8 +32,10 @@ const Dashboard = () => {
   const [showData, setShowData] = useState(true);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
-  const handleFetch = () => {
+  const handleFetch = async() => {
     // UI-only: just show the demo data section
+    console.log(username)
+    // await fetchDashboardData(username)
     setShowData(true);
     setVisibleCount(INITIAL_VISIBLE);
   };
@@ -33,6 +43,10 @@ const Dashboard = () => {
   const handleLoadMore = () => {
     setVisibleCount((prev) => Math.min(prev + 4, DEMO_REPOS.length));
   };
+
+  //  if (loading) return <Loader/>
+  //  if(error) return < Errorboundary/>
+
 
   return (
     <div className={styles.layout}>
