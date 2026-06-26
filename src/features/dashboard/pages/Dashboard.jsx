@@ -26,7 +26,7 @@ const Dashboard = () => {
   // const { profile, repos, loading, error, fetchDashboardData} = useDashboard()
 
   const [username, setUsername] = useState("");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   // showData controls whether profile/stats are visible.
   // Set to true by default so demo data is shown on load.
   const [showData, setShowData] = useState(true);
@@ -50,13 +50,10 @@ const Dashboard = () => {
 
   return (
     <div className={styles.layout}>
-      <Navbar onMenuToggle={() => setIsSidebarOpen((o) => !o)} />
+      <Navbar/>
 
       <div className={styles.main}>
-        <Sidebar
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-        />
+        <Sidebar/>
 
         <main className={styles.content}>
           {/* Page header */}
@@ -69,8 +66,7 @@ const Dashboard = () => {
 
           {/* Search */}
           <GitHubSearch
-            username={username}
-            onChange={setUsername}
+            setUsername={setUsername}
             onFetch={handleFetch}
           />
 

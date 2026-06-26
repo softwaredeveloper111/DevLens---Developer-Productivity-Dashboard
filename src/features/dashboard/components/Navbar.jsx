@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../styles/Navbar.module.css";
 
@@ -15,7 +14,6 @@ const Navbar = ({ onMenuToggle }) => {
           </svg>
         </div>
         <span className={styles.logoText}>DevLens</span>
-        <span className={styles.badge}>beta</span>
       </NavLink>
 
       {/* Center: Nav links */}

@@ -2,12 +2,14 @@ import styles from "../styles/GitHubSearch.module.css";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-const GitHubSearch = () => {
+const GitHubSearch = ({setUsername,onFetch}) => {
 
   const { register, handleSubmit } = useForm();
 
   function submitEventHandlerFunc(data) {
-    console.log(data);
+    // console.log(data);
+    setUsername(data.username)
+    onFetch()
   }
 
   function onFormError(errors) {
