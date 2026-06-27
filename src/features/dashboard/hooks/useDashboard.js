@@ -4,7 +4,9 @@ import { useDashboardContext, DASHBOARD_ACTIONS } from "../dashboard.context";
 import dashboardService from "../services/dashboard.api"
 import {toast} from "sonner"
 
+
 const useDashboard = () => {
+  
   const {state, dispatch} =  useDashboardContext()
   
 
@@ -12,7 +14,7 @@ const useDashboard = () => {
   const fetchDashboardData =  useCallback( async(username)=>{
     dispatch({ type: DASHBOARD_ACTIONS.FETCH_START });
     try {
-      const [profile,repos] = Promise.all([
+      const [profile,repos] = await Promise.all([
         dashboardService.getUserProfile(username),
         dashboardService.getUserRepos(username),
       ]);

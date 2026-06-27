@@ -35,7 +35,7 @@ const dashboardReducer = (state,action)=>{
       
 
     case DASHBOARD_ACTIONS.FETCH_SUCCESS:
-      return {...state,loading:false,error:null};
+      return {...state,loading:false,error:null , ...action.payload};
 
 
     case DASHBOARD_ACTIONS.FETCH_ERROR:

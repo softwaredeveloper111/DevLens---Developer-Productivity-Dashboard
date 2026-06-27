@@ -13,8 +13,8 @@ import {
   DEMO_LANGUAGES,
   DEMO_REPOS,
 } from "../demoData";
-// import useDashboard from "../hooks/useDashboard"
-// import Loader from "../../shared/Loader";
+import useDashboard from "../hooks/useDashboard"
+import Loader from "../../shared/Loader";
 // import Errorboundary from "../../shared/ErrorBoundary"
 
 
@@ -23,19 +23,19 @@ const INITIAL_VISIBLE = 6;
 
 const Dashboard = () => {
 
-  // const { profile, repos, loading, error, fetchDashboardData} = useDashboard()
+  const { profile, repos, loading, error, fetchDashboardData} = useDashboard()
 
   const [username, setUsername] = useState("");
 
   // showData controls whether profile/stats are visible.
   // Set to true by default so demo data is shown on load.
-  const [showData, setShowData] = useState(true);
+  const [showData, setShowData] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
   const handleFetch = async() => {
     // UI-only: just show the demo data section
     console.log(username)
-    // await fetchDashboardData(username)
+    await fetchDashboardData(username)
     setShowData(true);
     setVisibleCount(INITIAL_VISIBLE);
   };
@@ -44,8 +44,8 @@ const Dashboard = () => {
     setVisibleCount((prev) => Math.min(prev + 4, DEMO_REPOS.length));
   };
 
-  //  if (loading) return <Loader/>
-  //  if(error) return < Errorboundary/>
+   if (loading) return <Loader/>
+   if(error) return <p>{error}</p>
 
 
   return (

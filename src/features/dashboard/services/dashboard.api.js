@@ -35,12 +35,12 @@ import axiosInstance from "../../../axios";
 
 const dashboardService = {
    getUserProfile: async(username)=>{
-  const res = await axiosInstance.get(`users/${username}`);
+  const res = await axiosInstance.get(`/users/${username}`);
   return res.data
   },
 
    getUserRepos: async(username)=>{
-    const res = await axiosInstance.get (`users/${username}/repos`);
+    const res = await axiosInstance.get (`/users/${username}/repos`);
     return res.data
    }
 

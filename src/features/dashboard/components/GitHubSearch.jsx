@@ -4,12 +4,13 @@ import { toast } from "sonner";
 
 const GitHubSearch = ({setUsername,onFetch}) => {
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit , reset } = useForm();
 
   function submitEventHandlerFunc(data) {
     // console.log(data);
-    setUsername(data.username)
-    onFetch()
+    setUsername(data.username);
+    // reset();
+    onFetch();
   }
 
   function onFormError(errors) {
