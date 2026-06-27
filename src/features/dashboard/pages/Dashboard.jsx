@@ -84,7 +84,7 @@ const Dashboard = () => {
               </div>
 
               {/* Stats row */}
-              <StatsCards stats={profile} />
+              <StatsCards stats={profile} latestRepoUpdateAt={repos[0]?.updated_at} latestRepo={repos[0]} />
 
               {/* Repo list */}
               <RepoList

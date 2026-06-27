@@ -1,4 +1,5 @@
 import styles from "../styles/StatsCards.module.css";
+import { formatDistanceToNow } from "date-fns";
 
 const STAT_CONFIG = [
   {
@@ -43,8 +44,8 @@ const STAT_CONFIG = [
     sub: "Member Since in github",
   },
   {
-    key: "following",
-    label: "Following",
+    key: "updated_at",
+    label: "Last Updated",
     color: "#22C55E",
     bg: "rgba(34,197,94,0.1)",
     icon: (
@@ -62,11 +63,11 @@ const STAT_CONFIG = [
         <line x1="16" y1="11" x2="22" y2="11" />
       </svg>
     ),
-    sub: "Github following",
+    sub: "Last updated repo in github",
   },
   {
-    key: "followers",
-    label: "Followers",
+    key: "latestRepo",
+    label: "Latest Repo",
     color: "#A855F7",
     bg: "rgba(168,85,247,0.1)",
     icon: (
@@ -84,17 +85,39 @@ const STAT_CONFIG = [
         <path d="M16 3.13a4 4 0 010 7.75" />
       </svg>
     ),
-    sub: "GitHub followers",
+    sub: "Latest repository in github",
   },
 ];
 
-const StatsCards = ({ stats }) => {
+const StatsCards = ({ stats, latestRepoUpdateAt , latestRepo }) => {
+
   const githubSince = stats?.created_at
     ? new Date(stats.created_at).toLocaleDateString("en-US", {
         month: "short",
         year: "numeric",
       })
     : "—";
+
+  const latestRepoValue = latestRepo?.name ? (
+    <a
+      href={latestRepo.html_url || "#"}
+      target="_blank"
+      rel="noreferrer"
+      title={latestRepo.name}
+      style={{
+        color: "inherit",
+        textDecoration: "underline",
+        display: "block",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+      }}
+    >
+      {latestRepo.name}
+    </a>
+  ) : (
+    "—"
+  );
 
   return (
     <div className={styles.grid}>
@@ -112,7 +135,15 @@ const StatsCards = ({ stats }) => {
           <div className={styles.value}>
             {cfg.key === "githubSince"
               ? githubSince
-              : (stats[cfg.key]?.toLocaleString() ?? "—")}
+              : cfg.key === "updated_at"
+                ? latestRepoUpdateAt
+                  ? formatDistanceToNow(new Date(latestRepoUpdateAt), {
+                      addSuffix: true,
+                    })
+                  : "—"
+                : cfg.key === "latestRepo"
+                  ? latestRepoValue
+                  : (stats[cfg.key]?.toLocaleString() ?? "—")}
           </div>
           <div className={styles.sub}>{cfg.sub}</div>
         </div>
