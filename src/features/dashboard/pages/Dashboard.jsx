@@ -8,7 +8,6 @@ import TopLanguages from "../components/TopLanguages";
 import RepoList from "../components/RepoList";
 import styles from "../styles/Dashboard.module.css";
 import {
-  DEMO_PROFILE,
   DEMO_STATS,
   DEMO_LANGUAGES,
   DEMO_REPOS,
@@ -37,13 +36,14 @@ const Dashboard = () => {
 
     console.log(username)
     let success = await fetchDashboardData(username);
-    
+
     console.log(success)
     if(success){
       setShowData(true);
       setVisibleCount(INITIAL_VISIBLE);
     }
   };
+
 
 
 
@@ -82,7 +82,7 @@ const Dashboard = () => {
             <div className={styles.sections}>
               {/* Profile + Languages side-by-side on wide screens */}
               <div className={styles.topGrid}>
-                <ProfileCard profile={DEMO_PROFILE} />
+                <ProfileCard profile={profile} />
                 <TopLanguages languages={DEMO_LANGUAGES} />
               </div>
 

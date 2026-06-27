@@ -4,13 +4,13 @@ const ProfileCard = ({ profile }) => {
   return (
     <div className={styles.card}>
       <img
-        src={profile.avatarUrl}
-        alt={profile.name}
+        src={profile.avatar_url}
+        alt={profile.login}
         className={styles.avatar}
       />
       <div className={styles.info}>
         <p className={styles.name}>{profile.name}</p>
-        <p className={styles.username}>@{profile.username}</p>
+        <p className={styles.username}>@{profile.login}</p>
         {profile.bio && <p className={styles.bio}>{profile.bio}</p>}
 
         <div className={styles.meta}>
@@ -44,13 +44,13 @@ const ProfileCard = ({ profile }) => {
             <span className={styles.statLabel}>Following</span>
           </div>
           <div className={styles.statItem}>
-            <span className={styles.statValue}>{profile.publicRepos.toLocaleString()}</span>
+            <span className={styles.statValue}>{profile.public_repos.toLocaleString()}</span>
             <span className={styles.statLabel}>Repositories</span>
           </div>
         </div>
 
         <a
-          href={`https://github.com/${profile.username}`}
+          href={`https://github.com/${profile.login}`}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.viewBtn}
