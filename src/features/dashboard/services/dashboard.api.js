@@ -40,7 +40,7 @@ const dashboardService = {
   },
 
    getUserRepos: async(username)=>{
-    const res = await axiosInstance.get (`/users/${username}/repos`);
+    const res = await axiosInstance.get (`/users/${username}/repos?per_page=100&sort=updated&direction=desc`);
     return res.data
    }
 

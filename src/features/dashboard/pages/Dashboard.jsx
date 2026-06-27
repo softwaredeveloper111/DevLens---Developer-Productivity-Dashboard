@@ -8,7 +8,7 @@ import TopLanguages from "../components/TopLanguages";
 import RepoList from "../components/RepoList";
 import styles from "../styles/Dashboard.module.css";
 import {
-  DEMO_STATS,
+
   DEMO_REPOS,
 } from "../demoData";
 import useDashboard from "../hooks/useDashboard"
@@ -22,12 +22,13 @@ const INITIAL_VISIBLE = 6;
 
 const Dashboard = () => {
 
-  const { profile, repos, loading, error, fetchDashboardData ,resetDashboard} = useDashboard()
+  const { profile, repos, loading,  fetchDashboardData } = useDashboard()
 
  
 
 
   const [showData, setShowData] = useState(false);
+
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
 
@@ -88,7 +89,7 @@ const Dashboard = () => {
               </div>
 
               {/* Stats row */}
-              <StatsCards stats={DEMO_STATS} />
+              <StatsCards stats={profile} />
 
               {/* Repo list */}
               <RepoList
