@@ -31,7 +31,7 @@ const Dashboard = () => {
   const handleFetch = async(username) => {
 
     console.log(username)
-    let success = await fetchDashboardData(username);
+    let success = await fetchDashboardData(username.trim());
 
     console.log(success)
     if(success){
