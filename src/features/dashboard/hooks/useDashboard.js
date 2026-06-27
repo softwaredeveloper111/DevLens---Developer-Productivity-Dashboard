@@ -23,13 +23,16 @@ const useDashboard = () => {
         payload:{profile,repos},
       });
        toast.success("userer profile loaded successfully",{duration:5000,position:"top-right"});
+       return true;
+       
     } catch (error) {
 
        dispatch({
         type: DASHBOARD_ACTIONS.FETCH_ERROR,
         payload: error.message || "Failed to fetch dashboard data",
       });
-      toast.error(error.message || "Something went wrong",{duration:5000,position:"top-right"})
+      toast.error(error.message || "Something went wrong",{duration:5000,position:"top-right"});
+      return false
       
     }
   } , [dispatch]);

@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
   // [FUTURE BACKEND]: baseURL: import.meta.env.VITE_API_BASE_URL
 
   timeout: 12000,
-  withCredentials: true,
+  withCredentials: false,
   // [FUTURE BACKEND]: withCredentials: true  (for cookie/session auth)
 
   headers: {

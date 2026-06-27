@@ -23,30 +23,35 @@ const INITIAL_VISIBLE = 6;
 
 const Dashboard = () => {
 
-  const { profile, repos, loading, error, fetchDashboardData} = useDashboard()
+  const { profile, repos, loading, error, fetchDashboardData ,resetDashboard} = useDashboard()
 
-  const [username, setUsername] = useState("");
+ 
 
-  // showData controls whether profile/stats are visible.
-  // Set to true by default so demo data is shown on load.
+
   const [showData, setShowData] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
-  const handleFetch = async() => {
-    // UI-only: just show the demo data section
+
+
+  const handleFetch = async(username) => {
+
     console.log(username)
-    await fetchDashboardData(username)
-    setShowData(true);
-    setVisibleCount(INITIAL_VISIBLE);
+    let success = await fetchDashboardData(username);
+    
+    console.log(success)
+    if(success){
+      setShowData(true);
+      setVisibleCount(INITIAL_VISIBLE);
+    }
   };
+
+
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => Math.min(prev + 4, DEMO_REPOS.length));
   };
 
-   if (loading) return <Loader/>
-   if(error) return <p>{error}</p>
-
+   
 
   return (
     <div className={styles.layout}>
@@ -66,11 +71,14 @@ const Dashboard = () => {
 
           {/* Search */}
           <GitHubSearch
-            setUsername={setUsername}
             onFetch={handleFetch}
           />
 
-          {showData ? (
+
+          {loading ? (
+            <Loader/>
+          ) :
+          showData ? (
             <div className={styles.sections}>
               {/* Profile + Languages side-by-side on wide screens */}
               <div className={styles.topGrid}>
