@@ -7,10 +7,6 @@ import StatsCards from "../components/StatsCards";
 import TopLanguages from "../components/TopLanguages";
 import RepoList from "../components/RepoList";
 import styles from "../styles/Dashboard.module.css";
-import {
-
-  DEMO_REPOS,
-} from "../demoData";
 import useDashboard from "../hooks/useDashboard"
 import Loader from "../../shared/Loader";
 import  CALCULATE_LANGUAGES from "../../utils/calculateLanguage"
@@ -28,7 +24,6 @@ const Dashboard = () => {
 
 
   const [showData, setShowData] = useState(false);
-
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
 
@@ -50,7 +45,7 @@ const Dashboard = () => {
 
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + 4, DEMO_REPOS.length));
+    setVisibleCount((prev) => Math.min(prev + 4, repos.length));
   };
 
    
@@ -93,7 +88,7 @@ const Dashboard = () => {
 
               {/* Repo list */}
               <RepoList
-                repos={DEMO_REPOS}
+                repos={repos}
                 visibleCount={visibleCount}
                 onLoadMore={handleLoadMore}
               />
