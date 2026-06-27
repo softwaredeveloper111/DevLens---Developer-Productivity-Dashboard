@@ -13,18 +13,18 @@ const TopLanguages = ({ languages }) => {
 
       <div className={styles.list}>
         {languages.map((lang) => (
-          <div key={lang.name} className={styles.langItem}>
+          <div key={lang.language} className={styles.langItem}>
             <div className={styles.langMeta}>
               <span className={styles.langName}>
                 <span className={styles.dot} style={{ background: lang.color }} />
-                {lang.name}
+                {lang.language}
               </span>
-              <span className={styles.percent}>{lang.percent}%</span>
+              <span className={styles.percent}>{lang.percentage}%</span>
             </div>
             <div className={styles.bar}>
               <div
                 className={styles.barFill}
-                style={{ width: `${lang.percent}%`, background: lang.color }}
+                style={{ width: `${lang.percentage}%`, background: lang.color }}
               />
             </div>
           </div>

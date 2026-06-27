@@ -9,11 +9,11 @@ import RepoList from "../components/RepoList";
 import styles from "../styles/Dashboard.module.css";
 import {
   DEMO_STATS,
-  DEMO_LANGUAGES,
   DEMO_REPOS,
 } from "../demoData";
 import useDashboard from "../hooks/useDashboard"
 import Loader from "../../shared/Loader";
+import  CALCULATE_LANGUAGES from "../../utils/calculateLanguage"
 // import Errorboundary from "../../shared/ErrorBoundary"
 
 
@@ -41,6 +41,7 @@ const Dashboard = () => {
     if(success){
       setShowData(true);
       setVisibleCount(INITIAL_VISIBLE);
+      
     }
   };
 
@@ -83,7 +84,7 @@ const Dashboard = () => {
               {/* Profile + Languages side-by-side on wide screens */}
               <div className={styles.topGrid}>
                 <ProfileCard profile={profile} />
-                <TopLanguages languages={DEMO_LANGUAGES} />
+                <TopLanguages languages={CALCULATE_LANGUAGES(repos)} />
               </div>
 
               {/* Stats row */}
