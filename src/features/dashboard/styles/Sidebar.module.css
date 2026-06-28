@@ -52,6 +52,7 @@
   background: transparent;
   width: 100%;
   text-align: left;
+  position: relative;
 }
 
 .navItem svg {
@@ -65,10 +66,23 @@
   background: var(--card);
 }
 
-.navItem.active {
+.navItem.active,
+.sidebar:not(:has(.navItem[aria-current="page"])) .navItem[href="/dashboard"] {
   color: var(--text-primary);
   background: var(--card);
   border: 1px solid var(--border);
+}
+
+.navItem.active::before,
+.sidebar:not(:has(.navItem[aria-current="page"])) .navItem[href="/dashboard"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--primary);
 }
 
 /* Mobile overlay */
