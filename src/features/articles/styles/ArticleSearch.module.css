@@ -1,0 +1,62 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 40px 10px 42px;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.clear {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.clear:hover {
+  color: var(--text-primary);
+}
+
+.clear svg {
+  width: 14px;
+  height: 14px;
+}

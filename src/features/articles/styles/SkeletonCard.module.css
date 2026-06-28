@@ -1,0 +1,112 @@
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+}
+
+.body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shimmer {
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--surface) 25%,
+    #1f1f1f 50%,
+    var(--surface) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+}
+
+.tag {
+  height: 22px;
+  width: 68px;
+  border-radius: 6px;
+}
+
+.tagSm {
+  height: 22px;
+  width: 50px;
+  border-radius: 6px;
+}
+
+.titleLg {
+  height: 16px;
+  width: 90%;
+}
+
+.titleSm {
+  height: 16px;
+  width: 60%;
+}
+
+.text {
+  height: 13px;
+  width: 100%;
+}
+
+.textShort {
+  height: 13px;
+  width: 75%;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.metaText {
+  height: 12px;
+  width: 160px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.btn {
+  flex: 1;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
