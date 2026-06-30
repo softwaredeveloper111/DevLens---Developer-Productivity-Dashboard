@@ -18,7 +18,7 @@ import devtoClient from "../../../api/devtoClient";
 
 
 const articleService ={
-  getAllAriticles: async({page=1, per_page=12})=>{
+  getAllArticles: async({page=1, per_page=12})=>{
     const res = await devtoClient.get(`/articles?per_page=${per_page}&page=${page}`);
     return res.data
   }
