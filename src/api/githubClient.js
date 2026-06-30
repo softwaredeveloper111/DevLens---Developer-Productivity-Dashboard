@@ -1,5 +1,5 @@
 import axios from "axios";
-import apiErrorHandler from "./features/utils/ApiErrorHandler";
+import apiErrorHandler from "../features/utils/ApiErrorHandler";
 
 const BASE_RETRY_COUNT = 2;
 const RETRY_STATUS_CODES = [503, 429];
