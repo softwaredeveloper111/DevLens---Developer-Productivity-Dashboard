@@ -14,15 +14,15 @@
 
 .cover {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 7;
   background: var(--surface);
 }
 
 .body {
-  padding: 18px 20px 20px;
+  padding: 12px 14px 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
 .shimmer {
@@ -101,12 +101,12 @@
 
 .btn {
   flex: 1;
-  height: 36px;
-  border-radius: 8px;
+  height: 28px;
+  border-radius: 7px;
 }
 
 .iconBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
 }
