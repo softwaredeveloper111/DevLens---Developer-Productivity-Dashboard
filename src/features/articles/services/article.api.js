@@ -19,7 +19,12 @@ import devtoClient from "../../../api/devtoClient";
 
 const articleService ={
   getAllArticles: async({page=1, per_page=12})=>{
-    const res = await devtoClient.get(`/articles?per_page=${per_page}&page=${page}`);
+    const res = await devtoClient.get("/api/articles", {
+    params: {
+        page,
+        per_page,
+    },
+});
     return res.data
   }
 }

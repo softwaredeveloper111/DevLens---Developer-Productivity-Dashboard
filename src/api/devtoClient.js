@@ -35,7 +35,7 @@ devtoAxiosInstance.interceptors.response.use(
     const status = error.response?.status;
     if ( RETRY_STATUS_CODES.includes(status) && config._retryCount < BASE_RETRY_COUNT) {
       config._retryCount += 1;
-      const delay = 1000 * config._retryCount; 
+      const delay = 1000 * Math.pow(2, config._retryCount - 1);
       await new Promise((res) => setTimeout(res, delay));
       return devtoAxiosInstance(config);
     }
